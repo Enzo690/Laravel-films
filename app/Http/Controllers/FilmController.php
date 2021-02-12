@@ -24,7 +24,7 @@ class FilmController extends Controller
             }
         }
         $query = $model ? $model->whereSlug($slug)->firstOrFail()->films() : Film::query();
-        $films = $query->withTrashed()->oldest('title')->paginate(5);
+        $films = $query->withTrashed()->oldest('title')->paginate(8);
         return view('index', compact('films', 'slug'));
     }
 
@@ -93,6 +93,6 @@ class FilmController extends Controller
     public function restore($id)
     {
         Film::withTrashed()->whereId($id)->firstOrFail()->restore();
-        return back()->with('info', 'Le film a bien été restauré.');
+        return back()->with('info', 'Le contact a bien été restauré.');
     }
 }

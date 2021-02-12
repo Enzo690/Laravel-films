@@ -7,7 +7,7 @@ class Film extends Model {
     use HasFactory, SoftDeletes;
    // 1:n protected $fillable = ['title', 'year', 'description', 'category_id'];
     protected $fillable = ['title', 'year', 'description'];
-
+    protected $hidden = ['id', 'created_at', 'updated_at', 'deleted_at'];
 
     /* relation 1:n
     public function category()

@@ -10,6 +10,8 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'slug'];
+    protected $visible = ['name'];
+
     public function films()
     {
         return $this->morphToMany(Film::class, 'filmable');
